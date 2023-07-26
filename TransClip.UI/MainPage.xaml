@@ -32,19 +32,25 @@
             <NavigationView
                 x:Name="SideBar"
                 CompactModeThresholdWidth="0"
+                IsBackButtonVisible="Collapsed"
+                ItemInvoked="SideBar_ItemInvoked"
                 >
                 <NavigationView.MenuItems>
                     <NavigationViewItem 
+                        Tag="TransClip.UI.Pages.HomePage"
                         Icon="Home"
-                        Content="Home"
+                        Content="Home"                      
                         />
                     <NavigationViewItem
-                        Icon="Library"
+                        Tag="TransClip.UI.Pages.NotePad"
+                        Icon="Edit"
                         Content="Note Pad"/>
                     <NavigationViewItem
-                        Icon="World"
+                        Tag="TransClip.UI.Pages.Browser"
+                        Icon="Globe"
                         Content="Web Browser"/>
                 </NavigationView.MenuItems>
+
                 <NavigationView.PaneHeader>
                     <StackPanel
                         Orientation="Horizontal">
@@ -57,8 +63,24 @@
 
                     </StackPanel>
                 </NavigationView.PaneHeader>
-            </NavigationView>
 
+                <NavigationView.PaneFooter>
+                    <NavigationViewItem
+                        x:Name="ViewSourceButton"
+                        Content="View Source"
+                        Tapped="ViewSourceButton_Tapped">
+                        <NavigationViewItem.Icon>
+                            <FontIcon
+                                FontFamily="Segoe Fluent Icons"
+                                Glyph="&#xe756;"/>
+                        </NavigationViewItem.Icon>
+                    </NavigationViewItem>
+                </NavigationView.PaneFooter>
+
+                <Frame x:Name="ContentFrame"/>
+                
+                
+            </NavigationView>
         </Grid>
     </Grid>
 </Page>

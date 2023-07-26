@@ -9,6 +9,56 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
+        <StackPanel
+            x:Name="TitleBar"
+            Grid.Row="0"
+            Orientation="Horizontal"
+            Background="{ThemeResource SystemAccentColorDark1}">
+            <Image
+                Source="/Assets/SmallTile.scale-100.png"/>
+            <TextBlock
+                Text="TransClip"
+                VerticalAlignment="Center"/>
+
+        </StackPanel>
+        <Grid
+            Grid.Row="1">
+
+            <NavigationView
+                x:Name="SideBar"
+                CompactModeThresholdWidth="0"
+                >
+                <NavigationView.MenuItems>
+                    <NavigationViewItem 
+                        Icon="Home"
+                        Content="Home"
+                        />
+                    <NavigationViewItem
+                        Icon="Library"
+                        Content="Note Pad"/>
+                    <NavigationViewItem
+                        Icon="World"
+                        Content="Web Browser"/>
+                </NavigationView.MenuItems>
+                <NavigationView.PaneHeader>
+                    <StackPanel
+                        Orientation="Horizontal">
+                        <Image
+                            Source="/Assets/Square44x44Logo.targetsize-256.png"/>
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            Text="TransClip"
+                            Style="{StaticResource TitleTextBlockStyle}"/>
+
+                    </StackPanel>
+                </NavigationView.PaneHeader>
+            </NavigationView>
+
+        </Grid>
     </Grid>
 </Page>

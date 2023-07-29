@@ -23,7 +23,8 @@
                 Source="/Assets/SmallTile.scale-100.png"/>
             <TextBlock
                 Text="TransClip"
-                VerticalAlignment="Center"/>
+                VerticalAlignment="Center"
+                Foreground="#ffffff"/>
 
         </StackPanel>
         <Grid
@@ -67,7 +68,7 @@
                 <NavigationView.PaneFooter>
                     <NavigationViewItem
                         x:Name="ViewSourceButton"
-                        Content="View Source"
+                        Content="View Source Code"
                         Tapped="ViewSourceButton_Tapped">
                         <NavigationViewItem.Icon>
                             <FontIcon
@@ -77,7 +78,11 @@
                     </NavigationViewItem>
                 </NavigationView.PaneFooter>
 
-                <Frame x:Name="ContentFrame"/>
+                <StackPanel>
+                    <Frame 
+                        x:Name="ContentFrame"
+                        />
+                </StackPanel>
                 
                 
             </NavigationView>

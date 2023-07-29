@@ -9,7 +9,15 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock
-            Text="This is Home Page"/>
+        <NavigationView
+            PaneDisplayMode="Top"
+            IsBackButtonVisible="Collapsed"
+            IsSettingsVisible="False">
+
+            <NavigationView.MenuItems>
+                
+            </NavigationView.MenuItems>
+            
+        </NavigationView>
     </Grid>
 </Page>

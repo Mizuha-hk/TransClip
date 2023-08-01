@@ -12,12 +12,28 @@
         <NavigationView
             PaneDisplayMode="Top"
             IsBackButtonVisible="Collapsed"
-            IsSettingsVisible="False">
+            IsSettingsVisible="True">
 
-            <NavigationView.MenuItems>
-                
-            </NavigationView.MenuItems>
-            
+            <NavigationView.PaneFooter>
+                <NavigationViewItem
+                    x:Name="TranslationToggleContainer"
+                    Tapped="TranslationToggleContainer_Tapped"
+                    IsFocusEngagementEnabled="True"
+                    >
+                    <NavigationViewItem.Icon>
+                        <FontIcon
+                                FontFamily="Segoe Fluent Icons"
+                                Glyph="&#xf2b7;"/>
+                    </NavigationViewItem.Icon>
+                    <ToggleSwitch
+                        x:Name="TranslationToggle"
+                        IsOn="True"
+                        OnContent="翻訳ON"
+                        OffContent="翻訳OFF"
+                        Width="125"/>
+                </NavigationViewItem>
+            </NavigationView.PaneFooter>
+
         </NavigationView>
     </Grid>
 </Page>

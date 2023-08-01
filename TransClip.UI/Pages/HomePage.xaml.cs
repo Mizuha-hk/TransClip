@@ -26,5 +26,10 @@ namespace TransClip.UI.Pages
         {
             this.InitializeComponent();
         }
+
+        private void TranslationToggleContainer_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            TranslationToggle.IsOn = !TranslationToggle.IsOn;
+        }
     }
 }

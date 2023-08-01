@@ -40,16 +40,16 @@
                     <NavigationViewItem 
                         Tag="TransClip.UI.Pages.HomePage"
                         Icon="Home"
-                        Content="Home"                      
+                        Content="ホーム"                      
                         />
                     <NavigationViewItem
                         Tag="TransClip.UI.Pages.NotePad"
                         Icon="Edit"
-                        Content="Note Pad"/>
+                        Content="ノート"/>
                     <NavigationViewItem
                         Tag="TransClip.UI.Pages.Browser"
                         Icon="Globe"
-                        Content="Web Browser"/>
+                        Content="ブラウザー"/>
                 </NavigationView.MenuItems>
 
                 <NavigationView.PaneHeader>
@@ -68,7 +68,7 @@
                 <NavigationView.PaneFooter>
                     <NavigationViewItem
                         x:Name="ViewSourceButton"
-                        Content="View Source Code"
+                        Content="コードを見る"
                         Tapped="ViewSourceButton_Tapped">
                         <NavigationViewItem.Icon>
                             <FontIcon

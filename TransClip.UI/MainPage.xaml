@@ -78,13 +78,10 @@
                     </NavigationViewItem>
                 </NavigationView.PaneFooter>
 
-                <StackPanel>
-                    <Frame 
-                        x:Name="ContentFrame"
-                        />
-                </StackPanel>
-                
-                
+                <Frame 
+                    x:Name="ContentFrame"
+                    />
+
             </NavigationView>
         </Grid>
     </Grid>

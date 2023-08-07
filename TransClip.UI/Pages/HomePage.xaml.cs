@@ -37,14 +37,16 @@ namespace TransClip.UI.Pages
 
         private void TranslationTextBoxReturn()
         {
-           if (this.ActualWidth >= TranslatingTextBox.MinWidth + TranslatedTextBox.MinWidth + 32 && TranslationTextBoxIsReturned)
+           if (ActualWidth >= TranslatingTextBox.MinWidth + TranslatedTextBox.MinWidth + 32
+                && TranslationTextBoxIsReturned)
            {
                 TranslationTextBoxLayout.ColumnDefinitions.Add(new ColumnDefinition());
                 TranslationTextBoxLayout.RowDefinitions.RemoveAt(0);
                 
                 TranslationTextBoxIsReturned = false;
            }
-           else if(this.ActualWidth <  TranslatingTextBox.MinWidth + TranslatedTextBox.MinWidth + 32 && !TranslationTextBoxIsReturned)
+           else if(ActualWidth < TranslatingTextBox.MinWidth + TranslatedTextBox.MinWidth + 32
+                   && !TranslationTextBoxIsReturned)
            {
                 TranslationTextBoxLayout.RowDefinitions.Add(new RowDefinition());
                 TranslationTextBoxLayout.ColumnDefinitions.RemoveAt(0);

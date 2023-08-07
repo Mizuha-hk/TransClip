@@ -73,6 +73,14 @@
                             MaxHeight="200"
                             Margin="8"/>
                     </Grid>
+
+                    <StackPanel
+                        Margin="8"
+                        HorizontalAlignment="Right"
+                        Orientation="Horizontal">
+                        <Button
+                            Content="翻訳"/>
+                    </StackPanel>
                 </StackPanel>
             </ScrollViewer>
 

@@ -9,6 +9,80 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
+        <StackPanel
+            x:Name="TitleBar"
+            Grid.Row="0"
+            Orientation="Horizontal"
+            Background="{ThemeResource SystemAccentColorDark1}">
+            <Image
+                Source="/Assets/SmallTile.scale-100.png"/>
+            <TextBlock
+                Text="TransClip"
+                VerticalAlignment="Center"
+                Foreground="#ffffff"/>
+
+        </StackPanel>
+        <Grid
+            Grid.Row="1">
+
+            <NavigationView
+                x:Name="SideBar"
+                CompactModeThresholdWidth="0"
+                IsBackButtonVisible="Collapsed"
+                ItemInvoked="SideBar_ItemInvoked"
+                >
+                <NavigationView.MenuItems>
+                    <NavigationViewItem 
+                        Tag="TransClip.UI.Pages.HomePage"
+                        Icon="Home"
+                        Content="ホーム"                      
+                        />
+                    <NavigationViewItem
+                        Tag="TransClip.UI.Pages.NotePad"
+                        Icon="Edit"
+                        Content="ノート"/>
+                    <NavigationViewItem
+                        Tag="TransClip.UI.Pages.Browser"
+                        Icon="Globe"
+                        Content="ブラウザー"/>
+                </NavigationView.MenuItems>
+
+                <NavigationView.PaneHeader>
+                    <StackPanel
+                        Orientation="Horizontal">
+                        <Image
+                            Source="/Assets/Square44x44Logo.targetsize-256.png"/>
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            Text="TransClip"
+                            Style="{StaticResource TitleTextBlockStyle}"/>
+
+                    </StackPanel>
+                </NavigationView.PaneHeader>
+
+                <NavigationView.PaneFooter>
+                    <NavigationViewItem
+                        x:Name="ViewSourceButton"
+                        Content="コードを見る"
+                        Tapped="ViewSourceButton_Tapped">
+                        <NavigationViewItem.Icon>
+                            <FontIcon
+                                FontFamily="Segoe Fluent Icons"
+                                Glyph="&#xe756;"/>
+                        </NavigationViewItem.Icon>
+                    </NavigationViewItem>
+                </NavigationView.PaneFooter>
+
+                <Frame 
+                    x:Name="ContentFrame"
+                    />
+
+            </NavigationView>
+        </Grid>
     </Grid>
 </Page>

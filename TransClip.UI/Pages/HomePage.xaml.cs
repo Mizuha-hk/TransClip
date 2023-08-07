@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -22,9 +23,44 @@ namespace TransClip.UI.Pages
     /// </summary>
     public sealed partial class HomePage : Page
     {
+        #region paramater
+        private bool TranslationTextBoxIsReturned { get; set; } = false;
+        #endregion
+
         public HomePage()
         {
             this.InitializeComponent();
+
+            Loaded += HomePage_Loaded;
+            SizeChanged += HomePage_SizeChanged;
+        }
+
+        private void TranslationTextBoxReturn()
+        {
+           if (this.ActualWidth >= TranslatingTextBox.MinWidth + TranslatedTextBox.MinWidth + 32 && TranslationTextBoxIsReturned)
+           {
+                TranslationTextBoxLayout.ColumnDefinitions.Add(new ColumnDefinition());
+                TranslationTextBoxLayout.RowDefinitions.RemoveAt(0);
+                
+                TranslationTextBoxIsReturned = false;
+           }
+           else if(this.ActualWidth <  TranslatingTextBox.MinWidth + TranslatedTextBox.MinWidth + 32 && !TranslationTextBoxIsReturned)
+           {
+                TranslationTextBoxLayout.RowDefinitions.Add(new RowDefinition());
+                TranslationTextBoxLayout.ColumnDefinitions.RemoveAt(0);
+
+                TranslationTextBoxIsReturned = true;
+           }
+        }
+
+        private void HomePage_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            TranslationTextBoxReturn();
+        }
+
+        private void HomePage_Loaded(object sender, RoutedEventArgs e)
+        {
+            TranslationTextBoxReturn();
         }
 
         private void TranslationToggleContainer_Tapped(object sender, TappedRoutedEventArgs e)

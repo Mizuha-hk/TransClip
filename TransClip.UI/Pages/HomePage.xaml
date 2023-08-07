@@ -5,7 +5,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    >
 
     <Grid>
         <NavigationView
@@ -35,17 +36,34 @@
 
             <ScrollViewer>
                 <StackPanel>
-                    <VariableSizedWrapGrid
-                        Orientation="Horizontal">
+                    <Grid
+                        x:Name="TranslationTextBoxLayout">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition
+                                />
+                            <ColumnDefinition
+                                />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition
+                                />
+                        </Grid.RowDefinitions>
+
                         <TextBox
+                            x:Name="TranslatingTextBox"
+                            Grid.Column="0"
+                            Grid.Row="0"
                             Header="翻訳前テキスト"
                             TextWrapping="Wrap"
                             AcceptsReturn="True"
                             MinWidth="320"
                             MinHeight="160"
                             MaxHeight="200"
-                            Margin="10"/>
+                            Margin="8"/>
                         <TextBox
+                            x:Name="TranslatedTextBox"
+                            Grid.Column="1"
+                            Grid.Row="1"
                             Header="翻訳後テキスト"
                             IsReadOnly="True"
                             TextWrapping="Wrap"
@@ -53,8 +71,8 @@
                             MinWidth="320"
                             MinHeight="160"
                             MaxHeight="200"
-                            Margin="10"/>
-                    </VariableSizedWrapGrid>
+                            Margin="8"/>
+                    </Grid>
                 </StackPanel>
             </ScrollViewer>
 

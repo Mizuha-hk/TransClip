@@ -123,9 +123,13 @@
     <Compile Include="CharcterRecognizer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpeechEngine.cs" />
+    <Compile Include="Translater.cs" />
     <EmbeddedResource Include="Properties\TransClip.Library.rd.xml" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="DeepL.net">
+      <Version>1.7.1</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.14</Version>
     </PackageReference>

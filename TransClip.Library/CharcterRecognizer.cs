@@ -9,14 +9,16 @@ using Windows.UI.Xaml.Shapes;
 
 namespace TransClip.Library
 {
-    public struct Language
-    {
-        public const string JP = "ja-JP";
-        public const string EN = "en-US";
-    }
 
     public static class CharcterRecognizer
     {
+
+        public struct Language
+        {
+            public const string JP = "ja-JP";
+            public const string EN = "en-US";
+        }
+
         public static async Task<string> RunOcr(SoftwareBitmap bitmap, string lang)
         {
             OcrEngine ocrEngin = OcrEngine.TryCreateFromLanguage(new Windows.Globalization.Language(lang));

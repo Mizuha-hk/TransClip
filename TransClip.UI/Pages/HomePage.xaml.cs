@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using TransClip.Library;
 
 // 空白ページの項目テンプレートについては、https://go.microsoft.com/fwlink/?LinkId=234238 を参照してください
 
@@ -68,6 +69,12 @@ namespace TransClip.UI.Pages
         private void TranslationToggleContainer_Tapped(object sender, TappedRoutedEventArgs e)
         {
             TranslationToggle.IsOn = !TranslationToggle.IsOn;
+        }
+
+        private async void TranslationButton_Click(object sender, RoutedEventArgs e)
+        {
+            var speechEngine = new SpeechEngine();
+            await speechEngine.Say(TranslatingTextBox.Text);
         }
     }
 }

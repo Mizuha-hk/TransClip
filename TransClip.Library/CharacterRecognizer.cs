@@ -10,7 +10,7 @@ using Windows.UI.Xaml.Shapes;
 namespace TransClip.Library
 {
 
-    public static class CharcterRecognizer
+    public static class CharacterRecognizer
     {
 
         public struct Language

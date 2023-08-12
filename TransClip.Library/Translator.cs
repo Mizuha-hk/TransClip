@@ -7,7 +7,7 @@ using DeepL;
 
 namespace TransClip.Library
 {
-    public static class Translater
+    public static class Translator
     {
         
         public struct Language

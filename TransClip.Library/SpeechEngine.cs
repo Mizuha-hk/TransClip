@@ -13,8 +13,10 @@ namespace TransClip.Library
             {
                 var media = new MediaElement();
 
-                var synth = new SpeechSynthesizer();
-                synth.Voice = SpeechSynthesizer.DefaultVoice;
+                var synth = new SpeechSynthesizer
+                {
+                    Voice = SpeechSynthesizer.DefaultVoice
+                };
                 SpeechSynthesisStream stream = await synth.SynthesizeTextToStreamAsync(text);
 
                 media.SetSource(stream, stream.ContentType);

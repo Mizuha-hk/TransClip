@@ -21,11 +21,11 @@ namespace TransClip.Library
 
         public static async Task<string> RunOcr(SoftwareBitmap bitmap, string lang)
         {
-            OcrEngine ocrEngin = OcrEngine.TryCreateFromLanguage(new Windows.Globalization.Language(lang));
-            if(ocrEngin != null )
+            OcrEngine ocrEngine = OcrEngine.TryCreateFromLanguage(new Windows.Globalization.Language(lang));
+            if(ocrEngine != null )
             {
                 var str = string.Empty;
-                var result = await ocrEngin.RecognizeAsync(bitmap);
+                var result = await ocrEngine.RecognizeAsync(bitmap);
                 foreach(var line in result.Lines)
                 {
                     str += line + "\n";

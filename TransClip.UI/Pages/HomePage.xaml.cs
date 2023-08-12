@@ -74,7 +74,7 @@ namespace TransClip.UI.Pages
         private async void TranslationButton_Click(object sender, RoutedEventArgs e)
         {
             var speechEngine = new SpeechEngine();
-            await speechEngine.Say(TranslatingTextBox.Text);
+            await speechEngine.Speech(TranslatingTextBox.Text, SpeechEngine.Language.JA);
         }
     }
 }

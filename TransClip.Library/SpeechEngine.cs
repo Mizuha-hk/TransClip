@@ -9,7 +9,7 @@ namespace TransClip.Library
     {
         public async Task Say(string text)
         {
-            if(!string.IsNullOrEmpty(text))
+            if(!string.IsNullOrWhiteSpace(text))
             {
                 var media = new MediaElement();
 

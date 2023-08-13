@@ -49,7 +49,8 @@
                 </NavigationViewItem>
             </NavigationView.PaneFooter>
 
-            <Grid>
+            <Grid
+                x:Name="ToolBarLayout">
                 <Grid.RowDefinitions>
                     <RowDefinition
                         Height="*"/>
@@ -130,8 +131,10 @@
                     Grid.Row="1"
                     HorizontalAlignment="Stretch"
                     CornerRadius="0"
+                    Click="ToolBarToggleButton_Click"
                     >
                     <FontIcon
+                        x:Name="ToolBarToggleButtonIcon"
                         FontFamily="Segoe Fluent Icons"
                         Glyph="&#xe96e;"/>
                 </Button>

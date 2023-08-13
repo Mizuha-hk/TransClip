@@ -26,6 +26,7 @@ namespace TransClip.UI.Pages
     {
         #region paramater
         private bool TranslationTextBoxIsReturned { get; set; } = false;
+        private bool ToolBarIsCollapsed { get; set; } = false;
         #endregion
 
         public HomePage()
@@ -75,6 +76,22 @@ namespace TransClip.UI.Pages
         {
             var speechEngine = new SpeechEngine();
             await speechEngine.Speech(TranslatingTextBox.Text, SpeechEngine.Language.JA);
+        }
+
+        private void ToolBarToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(ToolBarIsCollapsed)
+            {
+                ToolBarLayout.RowDefinitions[2].Height = new GridLength(176);
+                ToolBarToggleButtonIcon.Glyph = "\xE96e";
+                ToolBarIsCollapsed = false;
+            }
+            else if(!ToolBarIsCollapsed)
+            {
+                ToolBarLayout.RowDefinitions[2].Height = new GridLength(0);
+                ToolBarToggleButtonIcon.Glyph = "\xE96d";
+                ToolBarIsCollapsed = true;
+            }
         }
     }
 }

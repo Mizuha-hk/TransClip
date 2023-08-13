@@ -129,6 +129,7 @@
                 <Button
                     x:Name="ToolBarToggleButton"
                     Grid.Row="1"
+                    Background="{ThemeResource SystemAccentColorDark1}"
                     HorizontalAlignment="Stretch"
                     CornerRadius="0"
                     Click="ToolBarToggleButton_Click"

@@ -5,7 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Background="{ThemeResource SystemChromeLowColor}"
     NavigationCacheMode="Enabled"
     >
 
@@ -66,69 +66,159 @@
                         <Grid
                             x:Name="TranslationTextBoxLayout">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition
-                                />
-                                <ColumnDefinition
-                                />
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
-                                <RowDefinition
-                                />
+                                <RowDefinition/>
                             </Grid.RowDefinitions>
 
-                            <TextBox
-                                x:Name="TranslatingTextBox"
+                            <StackPanel
                                 Grid.Column="0"
                                 Grid.Row="0"
-                                Header="翻訳前テキスト"
-                                TextWrapping="Wrap"
-                                AcceptsReturn="True"
-                                MinWidth="320"
-                                MinHeight="160"
-                                MaxHeight="200"
-                                Margin="8"/>
-                            <TextBox
-                                x:Name="TranslatedTextBox"
+                                CornerRadius="4"
+                                Background="{ThemeResource SystemChromeMediumColor}"
+                                Margin="8"
+                                >
+
+                                <Grid>
+                                    <StackPanel
+                                        Orientation="Horizontal"
+                                        HorizontalAlignment="Left">
+                                        <TextBlock
+                                            FontSize="18"
+                                            VerticalAlignment="Center"
+                                            Margin="8"
+                                            Text="翻訳前テキスト"/>
+                                    </StackPanel>
+
+                                    <StackPanel
+                                        Orientation="Horizontal"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Center"
+                                        Margin="0 0 8 0">
+                                        <ComboBox
+                                            x:Name="SourceLanguage"
+                                            CornerRadius="4"
+                                            SelectedIndex="0"
+                                            Margin="4">
+                                            <ComboBoxItem
+                                                Content="英語"/>
+                                            <ComboBoxItem
+                                                Content="日本語"/>
+                                        </ComboBox>
+                                        <Button
+                                            x:Name="PlayAudioButtonLeft"
+                                            Foreground="White"
+                                            Background="{ThemeResource SystemAccentColorLight1}"
+                                            Margin="4"
+                                            Click="PlayAudioButtonLeft_Click">
+                                            <FontIcon
+                                                FontFamily="Segoe Fluent Icons"
+                                                Glyph="&#xe768;"/>
+                                        </Button>
+                                    </StackPanel>
+                                </Grid>
+                                <TextBox
+                                    x:Name="TranslatingTextBox"
+                                    TextWrapping="Wrap"
+                                    AcceptsReturn="True"
+                                    MinWidth="284"
+                                    MinHeight="160"
+                                    MaxHeight="200"
+                                    Margin="8"/>
+                            </StackPanel>
+
+                            <StackPanel
                                 Grid.Column="1"
                                 Grid.Row="1"
-                                Header="翻訳後テキスト"
-                                IsReadOnly="True"
-                                TextWrapping="Wrap"
-                                AcceptsReturn="True"
-                                MinWidth="320"
-                                MinHeight="160"
-                                MaxHeight="200"
-                                Margin="8"/>
+                                CornerRadius="4"
+                                Background="{ThemeResource SystemChromeMediumColor}"
+                                Margin="8">
+
+                                <Grid>
+                                    <StackPanel
+                                        Orientation="Horizontal"
+                                        HorizontalAlignment="Left">             
+                                        <TextBlock
+                                            FontSize="18"
+                                            VerticalAlignment="Center"
+                                            Margin="8"
+                                            Text="翻訳後テキスト"/>
+                                    </StackPanel>
+
+                                    <StackPanel
+                                        Orientation="Horizontal"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Center"
+                                        Margin="0 0 8 0">
+                                        <ComboBox
+                                            x:Name="ResultLanguage"
+                                            CornerRadius="4"
+                                            SelectedIndex="1"
+                                            Margin="4">
+                                            <ComboBoxItem
+                                                Content="英語"/>
+                                            <ComboBoxItem
+                                                Content="日本語"/>
+                                        </ComboBox>
+                                        <Button
+                                            x:Name="PlayAudioButtonRight"
+                                            Foreground="White"
+                                            Background="{ThemeResource SystemAccentColorLight1}"
+                                            Margin="4"
+                                            Click="PlayAudioButtonRight_Click">
+                                            <FontIcon
+                                                FontFamily="Segoe Fluent Icons"
+                                                Glyph="&#xe768;"/>
+                                        </Button>
+                                    </StackPanel>
+                                </Grid>
+
+                                <TextBox
+                                    x:Name="TranslatedTextBox"
+                                    IsReadOnly="True"
+                                    TextWrapping="Wrap"
+                                    AcceptsReturn="True"
+                                    MinWidth="284"
+                                    MinHeight="160"
+                                    MaxHeight="200"
+                                    Margin="8"/>
+                            </StackPanel>
                         </Grid>
-
-                        <StackPanel
+                        <Grid
                             Margin="8"
-                            HorizontalAlignment="Right"
-                            Orientation="Horizontal">
-
-                            <Button
-                                x:Name="SwichButton"
+                            CornerRadius="4"
+                            Background="{ThemeResource SystemChromeMediumColor}">
+                            <StackPanel
+                                HorizontalAlignment="Right"
+                                Orientation="Horizontal"
                                 Margin="4">
-                                <FontIcon
-                                    FontFamily="Segoe Fluent Icons"
-                                    Glyph="&#xE895;"/>
-                            </Button>
 
-                            <Button
-                                x:Name="TranslationButton"
-                                Background="{ThemeResource SystemAccentColor}"
-                                Content="翻訳"
-                                Margin="4"
-                                Click="TranslationButton_Click"/>
+                                <Button
+                                    x:Name="SwichButton"
+                                    Margin="4">
+                                    <FontIcon
+                                        FontFamily="Segoe Fluent Icons"
+                                        Glyph="&#xE895;"/>
+                                </Button>
 
-
-                        </StackPanel>
+                                <Button
+                                    x:Name="TranslationButton"
+                                    Foreground="White"
+                                    Background="{ThemeResource SystemAccentColorLight1}"
+                                    Content="翻訳"
+                                    Margin="4"
+                                    Click="TranslationButton_Click"/>
+                            </StackPanel>
+                        </Grid>
                     </StackPanel>
                 </ScrollViewer>
 
                 <Button
                     x:Name="ToolBarToggleButton"
                     Grid.Row="1"
+                    Foreground="White"
                     Background="{ThemeResource SystemAccentColorDark1}"
                     HorizontalAlignment="Stretch"
                     CornerRadius="0"
@@ -140,53 +230,58 @@
                         Glyph="&#xe96e;"/>
                 </Button>
 
-                <StackPanel
+                <Grid
                     Grid.Row="2"
-                    Orientation="Horizontal"
-                    HorizontalAlignment="Center">
-                    <Border
-                        Margin="8"
-                        Height="160"
-                        Width="160"
-                        BorderBrush="{ThemeResource SystemAccentColor}"
-                        BorderThickness="1"
-                        CornerRadius="4">
-                        <Image
-                            x:Name="SourceImage"/>
-                    </Border>
-                    <StackPanel>
+                    Background="{ThemeResource SystemChromeMediumColor}">
+                    <StackPanel
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center">
                         <Border
-                            Height="112"
                             Margin="8"
-                            BorderBrush="{ThemeResource ButtonBorderThemeBrush}"
+                            Height="160"
+                            Width="160"
+                            BorderBrush="{ThemeResource SystemAccentColor}"
                             BorderThickness="1"
                             CornerRadius="4">
-                            <TextBlock
-                                VerticalAlignment="Center"
-                                Text="スクリーンショットの撮影もしくは，下のインポートボタンからファイルをインポートすると，画像から文字を認識します．"
-                                Width="240" 
-                                TextWrapping="WrapWholeWords"
-                                />
-
+                            <Image
+                                x:Name="SourceImage"/>
                         </Border>
-                        <StackPanel
-                            VerticalAlignment="Bottom"
-                            Orientation="Horizontal"
-                            Margin="8 0 8 16">
-                            <TextBox
-                                x:Name="ImageSouceUriBox"
-                                Width="160"
-                                Margin="4"
-                                IsReadOnly="True"/>
-                            <Button
-                                x:Name="ImportButton"
-                                Content="インポート"
-                                Background="{ThemeResource SystemAccentColor}"
-                                Margin="4"/>
+                        <StackPanel>
+                            <Border
+                                Height="112"
+                                Margin="8"
+                                BorderBrush="{ThemeResource ButtonBorderThemeBrush}"
+                                BorderThickness="1"
+                                CornerRadius="4">
+                                <TextBlock
+                                    VerticalAlignment="Center"
+                                    Text="スクリーンショットの撮影もしくは，下のインポートボタンからファイルをインポートすると，画像から文字を認識します．"
+                                    Width="240" 
+                                    TextWrapping="WrapWholeWords"
+                                    />
+
+                            </Border>
+                            <StackPanel
+                                VerticalAlignment="Bottom"
+                                Orientation="Horizontal"
+                                Margin="8 0 8 16">
+                                <TextBox
+                                    x:Name="ImageSouceUriBox"
+                                    Width="160"
+                                    Margin="4"
+                                    IsReadOnly="True"/>
+                                <Button
+                                    x:Name="ImportButton"
+                                    Content="インポート"
+                                    Foreground="White"
+                                    Background="{ThemeResource SystemAccentColorLight1}"
+                                    Margin="4"/>
+                            </StackPanel>
                         </StackPanel>
+
                     </StackPanel>
-                    
-                </StackPanel>
+
+                </Grid>
 
             </Grid>
 

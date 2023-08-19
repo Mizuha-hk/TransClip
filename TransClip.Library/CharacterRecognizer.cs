@@ -20,16 +20,16 @@ namespace TransClip.Library
             OcrEngine ocrEngine = OcrEngine.TryCreateFromLanguage(new Windows.Globalization.Language(lang));
             if(ocrEngine != null )
             {
-                var str = string.Empty;
+                var str = "";
                 var result = await ocrEngine.RecognizeAsync(bitmap);
                 foreach(var line in result.Lines)
                 {
-                    str += line + "\n";
+                    str += line.Text + "\n";
                 }
                 return str;
             }
 
-            return null;
+            return string.Empty;
         }
     }
 }

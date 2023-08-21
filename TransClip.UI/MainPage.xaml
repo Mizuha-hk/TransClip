@@ -65,19 +65,6 @@
                     </StackPanel>
                 </NavigationView.PaneHeader>
 
-                <NavigationView.PaneFooter>
-                    <NavigationViewItem
-                        x:Name="ViewSourceButton"
-                        Content="コードを見る"
-                        Tapped="ViewSourceButton_Tapped">
-                        <NavigationViewItem.Icon>
-                            <FontIcon
-                                FontFamily="Segoe Fluent Icons"
-                                Glyph="&#xe756;"/>
-                        </NavigationViewItem.Icon>
-                    </NavigationViewItem>
-                </NavigationView.PaneFooter>
-
                 <Frame 
                     x:Name="ContentFrame"
                     />

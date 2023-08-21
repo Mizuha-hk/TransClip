@@ -26,6 +26,13 @@ namespace TransClip.Library
                 {
                     str += line.Text + "\n";
                 }
+
+                if(lang == Language.JP)
+                {
+                    str = str.Replace(" ", "");
+                    str = str.Replace("　", "");
+                }
+
                 return str;
             }
 

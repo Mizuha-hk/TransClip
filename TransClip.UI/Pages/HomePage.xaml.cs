@@ -35,6 +35,7 @@ namespace TransClip.UI.Pages
         private bool ClipboardIsChanged { get; set; } = false;
 
         private readonly SpeechEngine speechEngine = new SpeechEngine();
+        private Translator translator { get; set; }
         #endregion
 
         public HomePage()
@@ -132,12 +133,26 @@ namespace TransClip.UI.Pages
             if (ClipboardIsChanged)
             {
                 var image = await GetClipboardImage();
+                var text = await GetClipboardText();
                 SoftwareBitmapSource source = new SoftwareBitmapSource();
                 await source.SetBitmapAsync(image);
                 Task.WaitAll();
 
                 SourceImage.Source = source;
-                await ExecuteOcr(image);
+                
+                if(image != null)
+                {
+                    await ExecuteOcr(image);
+                }
+                else if(text != null)
+                {
+                    TranslatingTextBox.Text = text;
+                }
+                else
+                {
+                    TranslatingTextBox.Text = "";
+                }
+
                 ClipboardIsChanged = false;
             }
         }

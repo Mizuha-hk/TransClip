@@ -36,7 +36,7 @@ namespace TransClip.UI
             ContentFrame.Navigate(typeof(HomePage));
 
             #region AddEvent
-            
+            Loaded += MainPage_Loaded;
             #endregion
         }
 
@@ -50,6 +50,11 @@ namespace TransClip.UI
             {
                 ContentFrame.Navigate(navPageType, null ,transitionInfo);
             }
+        }
+
+        private void MainPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            
         }
 
         private async void ViewSourceButton_Tapped(object sender, TappedRoutedEventArgs e)

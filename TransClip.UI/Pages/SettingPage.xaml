@@ -6,11 +6,87 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource SystemChromeLowColor}">
 
     <Grid>
-        <TextBlock
-            Text="This is Setting Page"/>
+        <ScrollViewer>
+            <StackPanel
+                Margin="8">
+                <TextBlock
+                    Text="設定"
+                    FontSize="32"
+                    Margin="8"/>
+                <StackPanel
+                    CornerRadius="4"
+                    Margin="8"
+                    Background="{ThemeResource SystemChromeMediumColor}">
+                    <TextBlock
+                        Text="DeepL APIキーの登録"
+                        FontSize="20"
+                        Margin="8"/>
+                    <TextBlock
+                        Text="DeepL APIを使用するためのAPIキーを登録します."
+                        Margin="8 0 8 8"/>
+                    <StackPanel
+                        Orientation="Horizontal">
+                        <RadioButton
+                            x:Name="DeepLFreeRadioButton"
+                            Content="DeepL Free"
+                            Margin="8"
+                            IsChecked="{Binding IsDeepLFree, Mode=TwoWay}"/>
+                        <RadioButton
+                            x:Name="DeepLProRadioButton"
+                            Content="DeepL Pro"
+                            Margin="8"
+                            IsChecked="{Binding IsDeepLPro, Mode=TwoWay}"/>
+                    </StackPanel>
+                    <StackPanel
+                        Orientation="Horizontal">
+                        <TextBox
+                            x:Name="DeepLApiKeyTextBox"
+                            Width="256"
+                            Text="{Binding DeepLApiKey, Mode=TwoWay}"
+                            Margin="8"/>
+                        <Button
+                            Content="登録"
+                            Margin="8"
+                            Background="{ThemeResource SystemAccentColorLight1}"
+                            Command="{Binding RegisterDeepLApiKeyCommand}"/>
+                    </StackPanel>
+                </StackPanel>
 
+                <TextBlock
+                    Text="アプリについて"
+                    FontSize="24"
+                    Margin="8"/>
+                <StackPanel
+                    CornerRadius="4"
+                    Margin="8"
+                    Background="{ThemeResource SystemChromeMediumColor}">
+                    <TextBlock
+                        FontSize="20"
+                        Text="ソースコードを見る"
+                        Margin="8"/>
+                    <TextBlock
+                        Text="このアプリケーションはオープンソースなっております．"
+                        Margin="8 0 8 8"
+                        />
+                    <Button
+                        x:Name="SourceCodeButton"
+                        Background="{ThemeResource SystemAccentColorLight1}"
+                        Margin="8"
+                        Click="SourceCodeButton_Click">
+                        <StackPanel
+                            Orientation="Horizontal">
+                            <FontIcon
+                                Glyph="&#xe756;"
+                                Margin="0 0 4 0"/>
+                            <TextBlock
+                                Text="ソースコードを参照"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>
